@@ -1,0 +1,163 @@
+/*  GENERAL CARDS*/
+.card {
+    width: 15%;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    min-height: inherit;
+}
+
+.card-image {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    min-height: inherit;
+}
+
+.card-title {
+    font-size: 1vw !important;
+}
+
+.card-reveal {
+    overflow-y: auto;
+    overflow-x: hidden;
+    white-space: initial;
+}
+
+.card-content {
+    overflow-y: auto;
+    white-space: initial;
+    height: 118px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*  HORIZONTAL SCROLL DIV   */
+.trending {
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: #871628;
+}
+
+/*  PAGES   */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #871628;
+}
+
+.Homepage, .Genre, .Year, Search {
+    background: #871628;
+}
+
+h3 {
+    font-family: Georgia;
+    margin: 0px;
+}
+h5 {
+    font-family: Georgia;
+    margin: 0px;
+    margin-top: 10px !important;
+}
+
+/*  NAVBAR AND ELEMENTS */
+.nav {
+    background-color: #871628 !important;
+}
+
+.brand-logo {
+    margin-left: 20px;
+}
+
+.explore-links {
+    margin-right: 20px;
+}
+
+/*  DROPDOWN   */
+.dropdown-content {
+    max-height: 250px;
+    min-width: 200px;
+    margin: 200px !important;
+}
+
+.dropdown-content li {
+    text-align: center !important;
+}
+
+/*  SEARCH BAR  */
+.input-field {
+    color: white;
+}
+
+/*  MOVIE DETAILS   */
+.movie-details .card {
+    width: 15%;
+    margin-left: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    /*min-height: inherit;*/
+}
+
+.movie-details .card-image {
+    border-radius: 10px;
+    border-top-left-radius: 10px !important;
+    border-top-right-radius: 10px !important;
+}
+
+.movie-details .card-content {
+    overflow-y: auto;
+    height: auto;
+}
+
+.movie-details {
+    margin: 10px;
+    /*border: 1px solid white;*/
+    /*white-space: nowrap;*/
+    /*overflow: hidden;*/
+    display:flex;
+    flex-wrap:wrap;
+    flex-direction:row;
+    background: #505050;
+}
+
+.movie-details .card {
+    display: inline-block;
+}
+
+.extra-details {
+    /*border: 2px solid yellow;*/
+    display: inline-block;
+    height: inherit;
+    vertical-align: top;
+    margin-left: 10px;
+    margin-top: 10px;
+    flex: 0 70%;
+}
+
+.extra-details p {
+    color: white;
+    word-wrap: break-word;
+    max-width: inherit;
+}
+
+.extra-details
+.movie-genres {
+    margin-left: 5px;
+
+}
+.cast {
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    background-color: #871628;
+}
+
+.cast .card {
+    width: 10%;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 10px;
+    min-height: inherit;
+}
