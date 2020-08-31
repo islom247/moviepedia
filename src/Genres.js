@@ -20,10 +20,10 @@ class Genres extends Component {
     }
 
     render() {
-        const {movies1, movies2, setChosenMovie, chosenYear, chosenGenreName, years, setChosenYearForGenre, yearForGenre} = this.props;
+        const {movies1 = [], movies2 = [], setChosenMovie, chosenYear, chosenGenreName, years, setChosenYearForGenre, yearForGenre} = this.props;
         return (
             <div className="Genres center">
-                <h3 className="center yellow-text ">{chosenGenreName}</h3>
+                <h3 className="center white-text ">{chosenGenreName}</h3>
                 <p className="center white-text">Filter by year:</p>
                 <ul id='genre-years' className='dropdown-content center'>
                     {years.map((item, i) => {
@@ -34,7 +34,7 @@ class Genres extends Component {
                     {yearForGenre}
                     <i className="material-icons right">arrow_drop_down</i>
                 </a>
-                {!movies1 || movies1.length === 0 ? <p className="center teal-text">Loading...</p>
+                {movies1.length === 0 ? <p className="center teal-text">Loading...</p>
                     :
                     <div className="trending">
                         {movies1.map((item, i) => {
@@ -60,7 +60,7 @@ class Genres extends Component {
                         })}
                     </div>
                 }
-                {!movies2 || movies2.length === 0 ? <p className="center teal-text">Loading...</p>
+                {movies2.length === 0 ? <p className="center teal-text">Loading...</p>
                     :
                     <div className="trending">
                         {movies2.map((item, i) => {

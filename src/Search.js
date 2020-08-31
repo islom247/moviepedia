@@ -17,13 +17,12 @@ class Search extends Component {
     }
 
     render() {
-        const {movies, actors, searchQuery, setChosenMovie, setChosenActor} = this.props;
-        console.log("movies", movies);
-        console.log("actors", actors);
+        const {movies, actors, tvShows, searchQuery, setChosenMovie, setChosenActor} = this.props;
+        console.log("movies: ", movies);
         return (
             <div className="Search">
                 <h5 className="center white-text ">Search results for "{searchQuery}"</h5>
-                <h3 className="center yellow-text ">Movies</h3>
+                <h3 className="center white-text ">Movies</h3>
                 {
                     movies.length === 0 ? <p className="center teal-text">Loading...</p> :
                         <div className="trending">
@@ -51,7 +50,35 @@ class Search extends Component {
                             }
                         </div>
                 }
-                <h3 className="center yellow-text ">Actors</h3>
+                <h3 className="center white-text ">TV Shows</h3>
+                {
+                    tvShows.length === 0 ? <p className="center teal-text">Loading...</p> :
+                        <div className="trending">
+                            {tvShows.map((item, i) => {
+                                return <div className="card" key={i}>
+                                    <div className="card-image waves-effect waves-block waves-light">
+                                        <img className="activator"
+                                             src={item.poster_path ? "http://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                    </div>
+                                    <div className="card-content">
+                                    <span className="activator grey-text text-darken-4"
+                                          onClick={() => setChosenMovie(item.id)}>
+                                        <Link to={"/movie/" + encodeURIComponent(item.name)}>{item.name}</Link>
+                                        <i className="material-icons right">more_vert</i>
+                                    </span>
+                                    </div>
+                                    <div className="card-reveal">
+                                    <span className="card-title grey-text text-darken-4">{item.title}
+                                        <i className="material-icons right">close</i>
+                                    </span>
+                                        <p>{item.overview}</p>
+                                    </div>
+                                </div>
+                            })
+                            }
+                        </div>
+                }
+                <h3 className="center white-text ">Actors</h3>
                 {
                     actors.length === 0 ? <p className="center teal-text">Loading...</p> :
                         <div className="trending">
@@ -81,7 +108,8 @@ const mapStateToProps = (state) => {
     return {
         movies: state.moviesForQuery,
         actors: state.actorsForQuery,
-        searchQuery: state.searchQuery
+        tvShows: state.tvShowsForQuery,
+        searchQuery: state.searchQuery,
     }
 }
 const mapDispatchToProps = (dispatch) => {

@@ -6,23 +6,21 @@ export const getHomepageMovies = () => {
     return (dispatch, getState) => {
         axios
             .get("https://api.themoviedb.org/3/trending/movie/day?api_key=" + tmdb_key)
-            .then((response1) => {
-                axios
-                    .get("https://api.themoviedb.org/3/movie/upcoming?api_key=" + tmdb_key)
-                    .then((response2) => {
-                        dispatch({type: "GET_HOMEPAGE_MOVIES", trending: response1.data.results, upcoming: response2.data.results});
-                    });
+            .then((response) => {
+                dispatch({type: "GET_TRENDING_MOVIES", trending: response.data.results});
             });
-
+        axios
+            .get("https://api.themoviedb.org/3/movie/upcoming?api_key=" + tmdb_key)
+            .then((response) => {
+                dispatch({type: "GET_UPCOMING_MOVIES", upcoming: response.data.results});
+            });
     }
 }
 export const setChosenGenre = (id, name) => {
     return (dispatch, getState) => {
         localStorage.setItem("chosenGenreId", id);
         localStorage.setItem("chosenGenreName", name);
-        localStorage.setItem("yearForGenre", "2020")
-        dispatch({type: "SET_YEAR_FOR_GENRE", year: "2020"});
-        dispatch({type: "SET_CHOSEN_GENRE", id: id, name: name});
+        dispatch({type: "SET_CHOSEN_GENRE", id: id, name: name, year: "2020"});
     }
 }
 export const getMoviesWithGenre = () => {
@@ -30,12 +28,13 @@ export const getMoviesWithGenre = () => {
         console.log("0 dispatch");
         axios
             .get("https://api.themoviedb.org/3/discover/movie?api_key=" + tmdb_key + "&with_genres=" + getState().chosenGenreId + "&primary_release_year=" + getState().yearForGenre)
-            .then((response1) => {
-                axios
-                    .get("https://api.themoviedb.org/3/discover/movie?api_key=" + tmdb_key + "&page=2&with_genres=" + getState().chosenGenreId + "&primary_release_year=" + getState().yearForGenre)
-                    .then((response2) => {
-                        dispatch({type: "GET_MOVIES_WITH_GENRE", movies1: response1.data.results, movies2: response2.data.results});
-                    });
+            .then((response) => {
+                dispatch({type: "GET_MOVIES_WITH_GENRE1", movies: response.data.results});
+            });
+        axios
+            .get("https://api.themoviedb.org/3/discover/movie?api_key=" + tmdb_key + "&page=2&with_genres=" + getState().chosenGenreId + "&primary_release_year=" + getState().yearForGenre)
+            .then((response) => {
+                dispatch({type: "GET_MOVIES_WITH_GENRE2", movies: response.data.results});
             });
     }
 }
@@ -55,14 +54,14 @@ export const getMoviesForYear = () => {
     return (dispatch, getState) => {
         axios
             .get("https://api.themoviedb.org/3/discover/movie?include_adult=false&api_key=" + tmdb_key + "&primary_release_year=" + getState().chosenYear)
-            .then((response1) => {
-                axios
-                    .get("https://api.themoviedb.org/3/discover/movie?api_key=" + tmdb_key + "&page=2&primary_release_year=" + getState().chosenYear)
-                    .then((response2) => {
-                        dispatch({type: "GET_MOVIES_FOR_YEAR", movies1: response1.data.results, movies2: response2.data.results});
-                    })
+            .then((response) => {
+                dispatch({type: "GET_MOVIES_FOR_YEAR1", movies: response.data.results});
             });
-
+        axios
+            .get("https://api.themoviedb.org/3/discover/movie?api_key=" + tmdb_key + "&page=2&primary_release_year=" + getState().chosenYear)
+            .then((response) => {
+                dispatch({type: "GET_MOVIES_FOR_YEAR2", movies: response.data.results});
+            })
     }
 }
 export const setChosenMovie = (id) => {
@@ -104,20 +103,21 @@ export const getActorDetails = () => {
     return (dispatch, getState) => {
         axios
             .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "?api_key=" + tmdb_key)
-            .then((response1) => {
-                localStorage.setItem("chosenActorDetails", response1.data);
-                axios
-                    .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "/movie_credits?api_key=" + tmdb_key)
-                    .then((response2) => {
-                        localStorage.setItem("chosenActorMovies", response2.data.cast);
-                        //dispatch({type: "GET_CHOSEN_ACTOR_DETAILS", actor_details: response1.data, actor_movies: response2.data.cast});
-                        axios
-                            .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "/tv_credits?api_key=" + tmdb_key)
-                            .then((response3) => {
-                                localStorage.setItem("chosenActorTV", response3.data.cast);
-                                dispatch({type: "GET_CHOSEN_ACTOR_DETAILS", actor_details: response1.data, actor_movies: response2.data.cast, tv_shows: response3.data.cast});
-                            });
-                    });
+            .then((response) => {
+                localStorage.setItem("chosenActorDetails", response.data);
+                dispatch({type: "GET_CHOSEN_ACTOR_DETAILS", actor_details: response.data});
+            });
+        axios
+            .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "/movie_credits?api_key=" + tmdb_key)
+            .then((response) => {
+                localStorage.setItem("chosenActorMovies", response.data.cast);
+                dispatch({type: "GET_CHOSEN_ACTOR_MOVIES", actor_movies: response.data.cast});
+            });
+        axios
+            .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "/tv_credits?api_key=" + tmdb_key)
+            .then((response) => {
+                localStorage.setItem("chosenActorTV", response.data.cast);
+                dispatch({type: "GET_CHOSEN_ACTOR_TV", actor_tv_shows: response.data.cast});
             });
     }
 }
@@ -127,15 +127,26 @@ export const setSearchQuery = (e) => {
     }
 }
 export const getSearchQueryResults = () => {
+    console.log("HERE");
     return (dispatch, getState) => {
         axios
             .get("https://api.themoviedb.org/3/search/movie?api_key=" + tmdb_key + "&query=" + encodeURI(getState().searchQuery))
-            .then((response1) => {
-                axios
-                    .get("https://api.themoviedb.org/3/search/person?api_key=" + tmdb_key + "&query=" + encodeURI(getState().searchQuery))
-                    .then((response2) => {
-                        dispatch({type: "GET_QUERY_RESULTS", movies: response1.data.results, actors: response2.data.results});
-                    })
+            .then((response) => {
+                localStorage.setItem("moviesForQuery", response.data.results);
+                console.log("searched movies", response.data.results);
+                dispatch({type: "GET_QUERY_MOVIES", movies: response.data.results});
+            });
+        axios
+            .get("https://api.themoviedb.org/3/search/person?api_key=" + tmdb_key + "&query=" + encodeURI(getState().searchQuery))
+            .then((response) => {
+                localStorage.setItem("actorsForQuery", response.data.results);
+                dispatch({type: "GET_QUERY_ACTORS", actors: response.data.results});
+            })
+        axios
+            .get("https://api.themoviedb.org/3/search/tv?api_key=" + tmdb_key + "&query=" + encodeURI(getState().searchQuery))
+            .then((response) => {
+                localStorage.setItem("tvShowsForQuery", response.data.results);
+                dispatch({type: "GET_QUERY_TV_SHOWS", tv_shows: response.data.results});
             });
     }
 }

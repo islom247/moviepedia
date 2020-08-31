@@ -23,16 +23,20 @@ const initState = {
     chosenActorMovies: localStorage.getItem("chosenActorMovies") ?? [],
     chosenActorTv: localStorage.getItem("chosenActorTV") ?? [],
     searchQuery: "",
-    moviesForQuery: [],
-    actorsForQuery: []
-
+    moviesForQuery: localStorage.getItem("moviesForQuery") ?? [],
+    actorsForQuery: localStorage.getItem("actorsForQuery") ?? [],
+    tvShowsForQuery: localStorage.getItem("tvShowsForQuery") ?? []
 }
 const movieReducer = (state = initState, action) => {
     switch (action.type) {
-        case "GET_HOMEPAGE_MOVIES":
+        case "GET_TRENDING_MOVIES":
             return {
                 ...state,
-                trending: action.trending,
+                trending: action.trending
+            };
+        case "GET_UPCOMING_MOVIES":
+            return {
+                ...state,
                 upcoming: action.upcoming
             };
         case "SET_CHOSEN_GENRE":
@@ -40,13 +44,18 @@ const movieReducer = (state = initState, action) => {
             return {
                 ...state,
                 chosenGenreId: action.id,
-                chosenGenreName: action.name
+                chosenGenreName: action.name,
+                yearForGenre: action.year
             }
-        case "GET_MOVIES_WITH_GENRE":
+        case "GET_MOVIES_WITH_GENRE1":
             return {
                 ...state,
-                moviesWithGenre1: action.movies1,
-                moviesWithGenre2: action.movies2
+                moviesWithGenre1: action.movies
+            }
+        case "GET_MOVIES_WITH_GENRE2":
+            return {
+                ...state,
+                moviesWithGenre2: action.movies
             }
         case "SET_YEAR_FOR_GENRE":
             return {
@@ -58,11 +67,15 @@ const movieReducer = (state = initState, action) => {
                 ...state,
                 chosenYear: action.year
             }
-        case "GET_MOVIES_FOR_YEAR":
+        case "GET_MOVIES_FOR_YEAR1":
             return {
                 ...state,
-                moviesForYear1: action.movies1,
-                moviesForYear2: action.movies2
+                moviesForYear1: action.movies
+            }
+        case "GET_MOVIES_FOR_YEAR2":
+            return {
+                ...state,
+                moviesForYear2: action.movies
             }
         case "SET_CHOSEN_MOVIE":
             return {
@@ -94,20 +107,37 @@ const movieReducer = (state = initState, action) => {
         case "GET_CHOSEN_ACTOR_DETAILS":
             return {
                 ...state,
-                chosenActorDetails: action.actor_details,
-                chosenActorMovies: action.actor_movies,
-                chosenActorTV: action.tv_shows
+                chosenActorDetails: action.actor_details
+            }
+        case "GET_CHOSEN_ACTOR_MOVIES":
+            return {
+                ...state,
+                chosenActorMovies: action.actor_movies
+            }
+        case "GET_CHOSEN_ACTOR_TV":
+            return {
+                ...state,
+                chosenActorTV: action.actor_tv_shows
             }
         case "SET_SEARCH_QUERY":
             return {
                 ...state,
                 searchQuery: action.query
             }
-        case "GET_QUERY_RESULTS":
+        case "GET_QUERY_MOVIES":
             return {
                 ...state,
-                moviesForQuery: action.movies,
+                moviesForQuery: action.movies
+            }
+        case "GET_QUERY_ACTORS":
+            return {
+                ...state,
                 actorsForQuery: action.actors
+            }
+        case "GET_QUERY_TV_SHOWS":
+            return {
+                ...state,
+                tvShowsForQuery: action.tv_shows
             }
         default:
             return state;

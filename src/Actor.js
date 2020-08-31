@@ -83,10 +83,11 @@ class Actor extends Component {
                             <p><span className="yellow-text text-accent-1">Biography:</span> {details.biography}</p>
                         </div>
                     </div>
-                    <h3 className="center yellow-text ">Movies</h3>
+                    <h3 className="center white-text ">Movies</h3>
                     <div className="trending">
                         {mv}
                     </div>
+                    <h3 className="center white-text ">TV</h3>
                     <div className="trending">
                         {tv}
                     </div>

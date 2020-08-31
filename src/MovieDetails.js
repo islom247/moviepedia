@@ -48,7 +48,7 @@ class MovieDetails extends Component {
                         </p>
                     </div>
                 </div>
-                <h3 className="center yellow-text ">Cast</h3>
+                <h3 className="center white-text ">Cast</h3>
                 <div className="cast">
                     {cast.map((item, i) => {
                         return <div className="card" key={i}>
