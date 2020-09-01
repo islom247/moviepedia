@@ -91,6 +91,12 @@ export const getChosenMovieDetails = () => {
                 localStorage.setItem("chosenMovieCast", creditsResponse.data.cast)
                 dispatch({type: "GET_CHOSEN_MOVIE_CAST", cast: creditsResponse.data.cast});
             });
+        axios
+            .get("https://api.themoviedb.org/3/movie/" + getState().chosenMovie + "/images?api_key=" + tmdb_key)
+            .then((response) => {
+                localStorage.setItem("chosenMovieImages", response.data.backdrops)
+                dispatch({type: "GET_CHOSEN_MOVIE_IMAGES", images: response.data.backdrops});
+            });
     }
 }
 export const setChosenActor = (id) => {
@@ -105,6 +111,7 @@ export const getActorDetails = () => {
             .get("https://api.themoviedb.org/3/person/" + getState().chosenActorId + "?api_key=" + tmdb_key)
             .then((response) => {
                 localStorage.setItem("chosenActorDetails", response.data);
+                console.log("details", response.data);
                 dispatch({type: "GET_CHOSEN_ACTOR_DETAILS", actor_details: response.data});
             });
         axios
@@ -123,6 +130,7 @@ export const getActorDetails = () => {
 }
 export const setSearchQuery = (e) => {
     return (dispatch, getState) => {
+        localStorage.setItem("searchQuery", e.target.value);
         dispatch({type: "SET_SEARCH_QUERY", query: e.target.value});
     }
 }

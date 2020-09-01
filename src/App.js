@@ -29,18 +29,12 @@ class App extends Component {
                 <div className="App">
                     <Navbar genres={this.state.genres}/>
                     <Switch>
-                        <Route exact path="/" component={() => (
-                            <Homepage/>)}/>
-                        <Route path="/genres/:id" component={() => (
-                            <Genres/>)}/>
-                        <Route path="/actor/:id" component={() => (
-                            <Actor/>)}/>
-                        <Route path="/year/:id" component={() => (
-                            <Year/>)}/>
-                        <Route path="/searchResults/:query" component={() => (
-                            <Search/>)}/>
-                        <Route path="/movie/:id" component={() => (
-                            <MovieDetails/>)}/>
+                        <Route exact path="/" component={Homepage}/>
+                        <Route path="/genres/:id" component={Genres}/>
+                        <Route path="/actor/:id" component={Actor}/>
+                        <Route path="/year/:id" component={Year}/>
+                        <Route path="/searchResults/:query" component={Search}/>
+                        <Route path="/movie/:id" component={MovieDetails}/>
                     </Switch>
                 </div>
             </BrowserRouter>

@@ -8,7 +8,7 @@ class Actor extends Component {
         const {details, movies, tv_shows, setChosenMovie} = this.props;
         console.log("4MO", tv_shows);
         const birthday = details.birthday ?? "";
-        //const mv = <div/>
+        const deathday = details.deathday ?? "";
         const mv = !movies ? <p>Loading...</p> :
             [...movies].map((item, i) => {
                 return <div className="card" key={i}>
@@ -21,10 +21,10 @@ class Actor extends Component {
                                           onClick={() => setChosenMovie(item.id)}>
                                         <Link to={"/movie/" + encodeURIComponent(item.title)}>{item.title}</Link>
                                     </span>
-                        <p>as</p>
-                        <span className="activator grey-text text-darken-4">
+                        {item.character && item.character.length > 0 ? <div><p>as</p>
+                            <span className="activator grey-text text-darken-4">
                                     {item.character}
-                                    </span>
+                                    </span></div> : ""}
                     </div>
                     <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">{item.title}
@@ -46,10 +46,10 @@ class Actor extends Component {
                                           onClick={() => setChosenMovie(item.id)}>
                                         <Link to={"/movie/" + encodeURIComponent(item.name)}>{item.name}</Link>
                                     </span>
-                        <p>as</p>
-                        <span className="activator grey-text text-darken-4">
+                        {item.character && item.character.length > 0 ? <div><p>as</p>
+                            <span className="activator grey-text text-darken-4">
                                     {item.character}
-                                    </span>
+                                    </span></div> : ""}
                     </div>
                     <div className="card-reveal">
                                     <span className="card-title grey-text text-darken-4">{item.title}
@@ -77,6 +77,9 @@ class Actor extends Component {
                             <p><span
                                 className="yellow-text text-accent-1">Birthday:</span> {birthday.split("-").reverse().join(".")}
                             </p>
+                            {deathday.length > 1 ? <p><span
+                                className="yellow-text text-accent-1">Died:</span> {deathday.split("-").reverse().join(".")}
+                            </p> : ""}
                             <p><span
                                 className="yellow-text text-accent-1">Place of birth:</span> {details.place_of_birth}
                             </p>

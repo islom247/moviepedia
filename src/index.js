@@ -4,9 +4,10 @@ import App from './App';
 import {createStore, applyMiddleware} from "redux";
 import {Provider} from "react-redux";
 import thunk from "redux-thunk";
+import {composeWithDevTools} from "redux-devtools-extension";
 import movieReducer from "./store/movieReducer";
 
-const store = createStore(movieReducer, undefined, applyMiddleware(thunk));
+const store = createStore(movieReducer, undefined, composeWithDevTools(applyMiddleware(thunk)));
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>

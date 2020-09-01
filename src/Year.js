@@ -19,7 +19,7 @@ class Year extends Component {
         const {setChosenMovie, movies1, movies2, chosenYear} = this.props;
         return (
             <div className="Year center">
-                <h3 className="center yellow-text ">Movies released in {chosenYear}</h3>
+                <h3 className="center white-text ">Movies released in {chosenYear}</h3>
                 {movies1.length === 0 ? <p className="center teal-text">Loading...</p>
                     :
                     <div className="trending">

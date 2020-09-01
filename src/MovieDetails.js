@@ -9,7 +9,7 @@ class MovieDetails extends Component {
     }
 
     render() {
-        const {details, cast, extra_details, setChosenGenre, setChosenActor} = this.props;
+        const {details, cast, images, extra_details, setChosenGenre, setChosenActor} = this.props;
         console.log("DETAILS: ", this.props);
         const genres = details.genres ?? [];
         const release_date = details.release_date ?? "";
@@ -28,14 +28,17 @@ class MovieDetails extends Component {
                         </div>
                     </div>
                     <div className="extra-details">
-                        <p><span className="yellow-text text-accent-1">Plot:</span> {extra_details.Plot === "N/A" ? details.overview : plot}</p>
+                        <p><span
+                            className="yellow-text text-accent-1">Plot:</span> {extra_details.Plot === "N/A" ? details.overview : plot}
+                        </p>
                         <p><span className="yellow-text text-accent-1">Director:</span> {extra_details.Director}</p>
                         <p><span className="yellow-text text-accent-1">Writer:</span> {extra_details.Writer}</p>
                         <p><span className="yellow-text text-accent-1">Production:</span> {extra_details.Production}</p>
                         <p><span className="yellow-text text-accent-1">Release date:</span> {extra_details.Released}</p>
                         <p><span className="yellow-text text-accent-1">Runtime:</span> {extra_details.Runtime}</p>
                         <p><span className="yellow-text text-accent-1">Tagline:</span> "{details.tagline}"</p>
-                        <p><span className="yellow-text text-accent-1">IMDB Rating:</span> {extra_details.imdbRating}</p>
+                        <p><span className="yellow-text text-accent-1">IMDB Rating:</span> {extra_details.imdbRating}
+                        </p>
                         <p><span className="yellow-text text-accent-1">Box office:</span> {extra_details.BoxOffice}</p>
                         <p><span className="yellow-text text-accent-1">Genres:</span>
                             {genres.map((item => {
@@ -61,14 +64,24 @@ class MovieDetails extends Component {
                                           onClick={() => setChosenActor(item.id)}>
                                         <Link to={"/actor/" + encodeURIComponent(item.name)}>{item.name}</Link>
                                     </span>
-                                <p>as</p>
-                                <span className="activator grey-text text-darken-4">
+                                {item.character && item.character.length > 0 ? <div><p>as</p>
+                                    <span className="activator grey-text text-darken-4">
                                     {item.character}
-                                    </span>
+                                    </span></div> : ""}
                             </div>
                         </div>
                     })}
                 </div>
+                {/*<div className="cast">*/}
+                {/*    {images.map((item, i) => {*/}
+                {/*        return <div className="card" key={i}>*/}
+                {/*            <div className="card-image">*/}
+                {/*                <img className="activator"*/}
+                {/*                     src={item.file_path ? "http://image.tmdb.org/t/p/w185" + item.file_path : require("./film-placeholder.png")}/>*/}
+                {/*            </div>*/}
+                {/*        </div>*/}
+                {/*    })}*/}
+                {/*</div>*/}
             </div>
         );
     }
@@ -78,7 +91,8 @@ const mapStateToProps = (state) => {
     return {
         details: state.chosenMovieDetails,
         extra_details: state.chosenMovieExtraDetails,
-        cast: state.chosenMovieCast
+        cast: state.chosenMovieCast,
+        images: state.chosenMovieImages
     }
 }
 const mapDispatchToProps = (dispatch) => {
