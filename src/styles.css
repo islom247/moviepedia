@@ -112,13 +112,11 @@ h5 {
 
 .movie-details {
     margin: 10px;
-    /*border: 1px solid white;*/
-    /*white-space: nowrap;*/
-    /*overflow: hidden;*/
     display:flex;
     flex-wrap:wrap;
     flex-direction:row;
     background: #505050;
+    border-radius: 10px;
 }
 
 .movie-details .card {
@@ -141,7 +139,6 @@ h5 {
     max-width: inherit;
 }
 
-.extra-details
 .movie-genres {
     margin-left: 5px;
 
@@ -155,7 +152,7 @@ h5 {
 }
 
 .cast .card {
-    width: 10%;
+    width: 15%;
     border-radius: 10px;
     display: inline-block;
     margin-right: 10px;

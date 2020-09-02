@@ -7,7 +7,6 @@ import {Link} from "react-router-dom";
 
 class Search extends Component {
     componentDidMount() {
-        console.log("QUERYING");
         this.props.getSearchQueryResults();
     }
 
@@ -105,7 +104,6 @@ class Search extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("redux condition", state);
     return {
         movies: state.moviesForQuery,
         actors: state.actorsForQuery,

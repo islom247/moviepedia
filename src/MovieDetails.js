@@ -10,11 +10,9 @@ class MovieDetails extends Component {
 
     render() {
         const {details, cast, images, extra_details, setChosenGenre, setChosenActor} = this.props;
-        console.log("DETAILS: ", this.props);
         const genres = details.genres ?? [];
         const release_date = details.release_date ?? "";
         const plot = extra_details.Plot ?? "";
-        console.log("genres: ", extra_details);
         return (
             <div className="details">
                 <div className="movie-details">

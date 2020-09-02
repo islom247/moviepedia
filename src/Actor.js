@@ -4,9 +4,12 @@ import {Link} from "react-router-dom";
 import {getActorDetails, setChosenMovie} from "./store/movieActions";
 
 class Actor extends Component {
+    componentDidMount() {
+        this.props.getActorDetails();
+    }
+
     render() {
         const {details, movies, tv_shows, setChosenMovie} = this.props;
-        console.log("4MO", tv_shows);
         const birthday = details.birthday ?? "";
         const deathday = details.deathday ?? "";
         const mv = !movies ? <p>Loading...</p> :
@@ -97,10 +100,6 @@ class Actor extends Component {
                 </div>
             </div>
         );
-    }
-
-    componentDidMount() {
-        this.props.getActorDetails();
     }
 }
 
