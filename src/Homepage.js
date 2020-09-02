@@ -72,7 +72,6 @@ class Homepage extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log("redux state", state);
     return {
         trending: state.trending,
         upcoming: state.upcoming

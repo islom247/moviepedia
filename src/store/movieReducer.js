@@ -4,15 +4,15 @@ for (let i = 1910; i <= this_year; ++i) {
     years.push(i);
 }
 const initState = {
+    years: years,
     chosenYear: localStorage.getItem("chosenYear") ?? (new Date()).getFullYear(),
-    moviesWithGenre1: [],
-    moviesWithGenre2: [],
     moviesForYear1: [],
     moviesForYear2: [],
-    years: years,
     chosenGenreId: localStorage.getItem("chosenGenreId") ?? "",
     chosenGenreName: localStorage.getItem("chosenGenreName") ?? "",
     yearForGenre: localStorage.getItem("yearForGenre") ?? "2020",
+    moviesWithGenre1: [],
+    moviesWithGenre2: [],
     chosenMovie: localStorage.getItem("chosenMovie") ?? "",
     chosenMovieDetails: [],
     chosenMoviePlot: "",
@@ -20,13 +20,13 @@ const initState = {
     chosenMovieImages: [],
     chosenMovieExtraDetails: {},
     chosenActorId: localStorage.getItem("chosenActor") ?? "",
-    chosenActorDetails: localStorage.getItem("chosenActorDetails") ?? {},
-    chosenActorMovies: localStorage.getItem("chosenActorMovies") ?? [],
-    chosenActorTv: localStorage.getItem("chosenActorTV") ?? [],
+    chosenActorDetails: {},
+    chosenActorMovies: [],
+    chosenActorTv: [],
     searchQuery: localStorage.getItem("searchQuery") ?? "",
-    moviesForQuery: [],//localStorage.getItem("moviesForQuery") ?? [],
-    actorsForQuery: [],//localStorage.getItem("actorsForQuery") ?? [],
-    tvShowsForQuery: [],//localStorage.getItem("tvShowsForQuery") ?? []
+    moviesForQuery: [],
+    actorsForQuery: [],
+    tvShowsForQuery: []
 }
 const movieReducer = (state = initState, action) => {
     switch (action.type) {
