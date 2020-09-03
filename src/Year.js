@@ -27,7 +27,7 @@ class Year extends Component {
                             return <div className="card" key={i}>
                                 <div className="card-image waves-effect waves-block waves-light">
                                     <img className="activator"
-                                         src={item.poster_path ? "http://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
                                 </div>
                                 <div className="card-content">
                                     <span className="activator grey-text text-darken-4"

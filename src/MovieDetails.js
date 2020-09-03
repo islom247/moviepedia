@@ -19,7 +19,7 @@ class MovieDetails extends Component {
                     <div className="card">
                         <div className="card-image">
                             <img className="activator"
-                                 src={details.poster_path ? "http://image.tmdb.org/t/p/w185" + details.poster_path : require("./film-placeholder.png")}/>
+                                 src={details.poster_path ? "https://image.tmdb.org/t/p/w185" + details.poster_path : require("./film-placeholder.png")}/>
                         </div>
                         <div className="card-content">
                             <span className="card-title center teal-text">{details.title}</span>
@@ -55,7 +55,7 @@ class MovieDetails extends Component {
                         return <div className="card" key={i}>
                             <div className="card-image">
                                 <img className="activator"
-                                     src={item.profile_path ? "http://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}/>
+                                     src={item.profile_path ? "https://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}/>
                             </div>
                             <div className="card-content">
                                     <span className="activator grey-text text-darken-4"

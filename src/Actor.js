@@ -42,7 +42,7 @@ class Actor extends Component {
                 return <div className="card" key={i}>
                     <div className="card-image waves-effect waves-block waves-light">
                         <img className="activator"
-                             src={item.poster_path ? "http://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                             src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
                     </div>
                     <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -69,7 +69,7 @@ class Actor extends Component {
                         <div className="card">
                             <div className="card-image">
                                 <img className="activator"
-                                     src={details.profile_path ? "http://image.tmdb.org/t/p/w185" + details.profile_path : require("./film-placeholder.png")}/>
+                                     src={details.profile_path ? "https://image.tmdb.org/t/p/w185" + details.profile_path : require("./film-placeholder.png")}/>
                             </div>
                             <div className="card-content">
                                 <span className="card-title center teal-text">{details.name}</span>

@@ -77,7 +77,7 @@ export const getChosenMovieDetails = () => {
             .then((detailsResponse) => {
                 dispatch({type: "GET_CHOSEN_MOVIE_DETAILS", details: detailsResponse.data});
                 axios
-                    .get("http://www.omdbapi.com/?apikey=" + omdb_key + "&plot=full&i=" + detailsResponse.data.imdb_id)
+                    .get("https://www.omdbapi.com/?apikey=" + omdb_key + "&plot=full&i=" + detailsResponse.data.imdb_id)
                     .then((extraDetailsResponse) => {
                         dispatch({type: "GET_CHOSEN_MOVIE_EXTRA_DETAILS", extra_details: extraDetailsResponse.data});
                     });
