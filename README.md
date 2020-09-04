@@ -21,6 +21,7 @@ Here are the basic functionalities of the application
 * You can view detailed information about an actor such as:
   * name
   * birthdate
+  * place of birth
   * biography
   * movies
   * tv shows
