@@ -41,7 +41,6 @@ const movieReducer = (state = initState, action) => {
                 upcoming: action.upcoming
             };
         case "SET_CHOSEN_GENRE":
-            console.log("setting genre", action);
             return {
                 ...state,
                 chosenGenreId: action.id,
@@ -89,7 +88,7 @@ const movieReducer = (state = initState, action) => {
                 chosenMovieDetails: action.details
             }
         case "GET_CHOSEN_MOVIE_EXTRA_DETAILS":
-            console.log("HERE", action.extra_details);
+
             return {
                 ...state,
                 chosenMovieExtraDetails: action.extra_details
@@ -105,7 +104,6 @@ const movieReducer = (state = initState, action) => {
                 chosenMovieImages: action.images
             }
         case "SET_CHOSEN_ACTOR":
-            console.log("LLOL", action.actor_id);
             return {
                 ...state,
                 chosenActorId: action.actor_id
