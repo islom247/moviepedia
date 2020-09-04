@@ -24,6 +24,13 @@ To use it you need an api key which you can get after registering on the website
 [OMDb](https://www.omdbapi.com/) is also a free api for which you should also have a key to use.<br/>
 You can get a key for either a donation(unlimited requests) or for free(1000 daily limit). I used the "free" option.
 
+## Issues encountered
+When I first created a more or less working version of the application I was sending data(name of the movie, actor etc.) to components as props from a parent component.
+However, keeping in mind the users' behavior I tried to reload the pages(browser's refresh button). I received errors and as it turns out the props had disappeared.
+Also it was becoming harder to track each component's state, so I decided to use Redux. To maintain certain information (which movie or actor is selected, etc.) which I needed for api calls I stored them in the _localStorage_ which were available upon request.<br/>
+Moreover, the application was behaving differently each time I clicked on certain links. For example I would get error saying _array.map()_ is not a function. I was getting those arrays as props from the state which in fact were being stored in _localStorage_ as well. After a bit of testing I found out that I didn't need to store them in the _localStorage_ since I was making api calls after each click or refresh an the needed information for these calls were already stored in the _localStorage_.
+To understand better you can inspect the code for actions, the reducer and some component. That should be insightful enough.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
