@@ -6,7 +6,7 @@ I created this application during my spare time to improve my React skills.
 
 ## Frameworks and libraries used
 * __React__ (to build the user interface)
-* __Redux__ (to keep the state of the application)
+* __Redux__ (to keep track of the state of the application)
 * __Materialize CSS__ (to style the application)
 * __axios__ (to make api calls)
 
