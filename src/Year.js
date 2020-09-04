@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {getMoviesForYear, setChosenMovie} from "./store/movieActions";
-import M from "materialize-css";
 import "./styles.css";
 import {Link} from "react-router-dom";
 
@@ -9,6 +8,7 @@ class Year extends Component {
     componentDidMount() {
         this.props.getMoviesForYear();
     }
+
     componentDidUpdate(prevProps, prevState, snapshot) {
         if (prevProps.chosenYear !== this.props.chosenYear) {
             this.props.getMoviesForYear();
@@ -27,7 +27,8 @@ class Year extends Component {
                             return <div className="card" key={i}>
                                 <div className="card-image waves-effect waves-block waves-light">
                                     <img className="activator"
-                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                         alt="poster"/>
                                 </div>
                                 <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -53,7 +54,8 @@ class Year extends Component {
                             return <div className="card" key={i}>
                                 <div className="card-image waves-effect waves-block waves-light">
                                     <img className="activator"
-                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                         alt="poster"/>
                                 </div>
                                 <div className="card-content">
                                     <span className="activator grey-text text-darken-4"

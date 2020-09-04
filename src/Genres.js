@@ -1,5 +1,4 @@
 import React, {Component} from "react";
-import axios from "axios";
 import M from "materialize-css";
 import {connect} from "react-redux";
 import "./styles.css"
@@ -20,14 +19,15 @@ class Genres extends Component {
     }
 
     render() {
-        const {movies1 = [], movies2 = [], setChosenMovie, chosenYear, chosenGenreName, years, setChosenYearForGenre, yearForGenre} = this.props;
+        const {movies1 = [], movies2 = [], setChosenMovie, chosenGenreName, years, setChosenYearForGenre, yearForGenre} = this.props;
         return (
             <div className="Genres center">
                 <h3 className="center white-text ">{chosenGenreName}</h3>
                 <p className="center white-text">Filter by year:</p>
                 <ul id='genre-years' className='dropdown-content center'>
                     {years.map((item, i) => {
-                        return <li style={{color: "teal"}} key={i} onClick={() => setChosenYearForGenre(item)}>{item}</li>
+                        return <li style={{color: "teal"}} key={i}
+                                   onClick={() => setChosenYearForGenre(item)}>{item}</li>
                     })}
                 </ul>
                 <a className="btn dropdown-trigger" href="#!" data-target="genre-years">
@@ -41,7 +41,8 @@ class Genres extends Component {
                             return <div className="card" key={i}>
                                 <div className="card-image waves-effect waves-block waves-light">
                                     <img className="activator"
-                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                         alt="poster"/>
                                 </div>
                                 <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -67,7 +68,8 @@ class Genres extends Component {
                             return <div className="card" key={i}>
                                 <div className="card-image waves-effect waves-block waves-light">
                                     <img className="activator"
-                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                         src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                         alt="poster"/>
                                 </div>
                                 <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -96,7 +98,6 @@ const mapStateToProps = (state) => {
         movies1: state.moviesWithGenre1,
         movies2: state.moviesWithGenre2,
         chosenGenreName: state.chosenGenreName,
-        chosenYear: state.chosenYear,
         years: state.years,
         yearForGenre: state.yearForGenre
     }

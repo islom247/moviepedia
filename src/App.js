@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {BrowserRouter, Switch, Route, Redirect} from "react-router-dom";
+import {BrowserRouter, Switch, Route} from "react-router-dom";
 import Navbar from "./Navbar";
 import Homepage from "./Homepage";
 import Genres from "./Genres";

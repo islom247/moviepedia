@@ -9,9 +9,8 @@ class MovieDetails extends Component {
     }
 
     render() {
-        const {details, cast, images, extra_details, setChosenGenre, setChosenActor} = this.props;
+        const {details, cast, extra_details, setChosenGenre, setChosenActor} = this.props;
         const genres = details.genres ?? [];
-        const release_date = details.release_date ?? "";
         const plot = extra_details.Plot ?? "";
         return (
             <div className="details">
@@ -19,7 +18,8 @@ class MovieDetails extends Component {
                     <div className="card">
                         <div className="card-image">
                             <img className="activator"
-                                 src={details.poster_path ? "https://image.tmdb.org/t/p/w185" + details.poster_path : require("./film-placeholder.png")}/>
+                                 src={details.poster_path ? "https://image.tmdb.org/t/p/w185" + details.poster_path : require("./film-placeholder.png")}
+                                 alt="poster"/>
                         </div>
                         <div className="card-content">
                             <span className="card-title center teal-text">{details.title}</span>
@@ -55,7 +55,8 @@ class MovieDetails extends Component {
                         return <div className="card" key={i}>
                             <div className="card-image">
                                 <img className="activator"
-                                     src={item.profile_path ? "https://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}/>
+                                     src={item.profile_path ? "https://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}
+                                     alt="avatar"/>
                             </div>
                             <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -70,16 +71,6 @@ class MovieDetails extends Component {
                         </div>
                     })}
                 </div>
-                {/*<div className="cast">*/}
-                {/*    {images.map((item, i) => {*/}
-                {/*        return <div className="card" key={i}>*/}
-                {/*            <div className="card-image">*/}
-                {/*                <img className="activator"*/}
-                {/*                     src={item.file_path ? "http://image.tmdb.org/t/p/w185" + item.file_path : require("./film-placeholder.png")}/>*/}
-                {/*            </div>*/}
-                {/*        </div>*/}
-                {/*    })}*/}
-                {/*</div>*/}
             </div>
         );
     }

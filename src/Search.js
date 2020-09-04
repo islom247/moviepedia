@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import M from "materialize-css";
 import {getSearchQueryResults, setChosenMovie, setChosenActor} from "./store/movieActions"
 import "./styles.css"
 import {Link} from "react-router-dom";
@@ -29,7 +28,8 @@ class Search extends Component {
                                 return <div className="card" key={i}>
                                     <div className="card-image waves-effect waves-block waves-light">
                                         <img className="activator"
-                                             src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                             src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                             alt="poster"/>
                                     </div>
                                     <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -57,7 +57,8 @@ class Search extends Component {
                                 return <div className="card" key={i}>
                                     <div className="card-image waves-effect waves-block waves-light">
                                         <img className="activator"
-                                             src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}/>
+                                             src={item.poster_path ? "https://image.tmdb.org/t/p/w185" + item.poster_path : require("./film-placeholder.png")}
+                                             alt="poster"/>
                                     </div>
                                     <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
@@ -85,7 +86,8 @@ class Search extends Component {
                                 return <div className="card" key={i}>
                                     <div className="card-image">
                                         <img className="activator"
-                                             src={item.profile_path ? "https://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}/>
+                                             src={item.profile_path ? "https://image.tmdb.org/t/p/w185" + item.profile_path : require("./film-placeholder.png")}
+                                             alt="avatar"/>
                                     </div>
                                     <div className="card-content">
                                     <span className="activator grey-text text-darken-4"
