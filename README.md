@@ -40,6 +40,24 @@ __P.S:__ The core part of the application is done but the styling is still under
 ## Preview
 Here are some screenshots of the application
 
+### Homepage
+![homepage](/screenshots/homepage.PNG)
+
+### Genre
+![genre](/screenshots/genre.PNG)
+
+### Year
+![year](/screenshots/year.PNG)
+
+### Search Results
+![search](/screenshots/search.PNG)
+
+### Movie information
+![movie_info](/screenshots/movie_info.PNG)
+
+### Actor information
+![actor_info](/screenshots/actor_info.PNG)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
