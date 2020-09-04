@@ -1,3 +1,29 @@
+## Moviepedia
+Moviepedia is a web application that server like an online database of movies and provides information about them.
+
+## Motivation
+I created this application during my spare time to improve my React skills.
+
+## Frameworks and libraries used
+* __React__ (to build the user interface)
+* __Redux__ (to keep the state of the application)
+* __Materialize CSS__ (to style the application)
+* __axios__ (to make api calls)
+
+## APIs used
+To populate the website I needed some kind of data which I don't have in bulk amount.<br/>
+So I searched the web and found these two awesome APIs that I can use to get data from.<br/>
+I would like to extend my gratitude to the developers of these APIs.
+### The Movie Database(TMDb) <img src="https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg" width="200">
+
+[TMDb](https://www.themoviedb.org/) is a free api that you can use to get data for movies, tv series and actors.<br/>
+To use it you need an api key which you can get after registering on the website.
+
+### The Open Movie Database(OMDb) <img src="http://www.omdbapi.com/favicon.ico" width="40">
+
+[OMDb](https://www.omdbapi.com/) is also a free api for which you should also have a key to use.<br/>
+You can get a key for either a donation(unlimited requests) or for free(1000 daily limit). I used the "free" option.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
