@@ -1,5 +1,29 @@
 ## Moviepedia
-Moviepedia is a web application that serves like an online database of movies and provides information about them.
+Moviepedia is a web application that serves like an online database of movies and provides information about them.<br/>
+Here are the basic functionalities of the application
+* In the homepage you can see the list of trending and upcoming movies
+* You can choose a genre and view a list of movies from that genre
+* For a given genre you can filter the movies based on the release year
+* You can pick a year and list movies released on that year (every genre included)
+* Movies are sorted and viewed by their popularity rating
+* You can view detailed information about a certan movie such as:
+  * name of the movie
+  * plot
+  * director(s)
+  * writer(s) 
+  * release date
+  * runtime
+  * box office
+  * imdb rating
+  * production companies
+  * cast
+* You can view detailed information about an actor such as:
+  * name
+  * birthdate
+  * biography
+  * movies
+  * tv shows
+* You can search using keywords and related movies, tv shows and actors will be presented to you sorted by the popularity
 
 ## Motivation
 I created this application during my spare time to improve my React skills.
