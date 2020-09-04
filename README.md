@@ -16,6 +16,7 @@ Here are the basic functionalities of the application
   * box office
   * imdb rating
   * production companies
+  * genres that this movie belongs to
   * cast
 * You can view detailed information about an actor such as:
   * name
