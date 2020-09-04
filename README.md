@@ -1,5 +1,5 @@
 ## Moviepedia
-Moviepedia is a web application that server like an online database of movies and provides information about them.
+Moviepedia is a web application that serves like an online database of movies and provides information about them.
 
 ## Motivation
 I created this application during my spare time to improve my React skills.
