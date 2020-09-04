@@ -29,8 +29,8 @@ When I first created a more or less working version of the application I was sen
 However, keeping in mind the users' behavior I tried to reload the pages(browser's refresh button). I received errors and as it turns out the props had disappeared.
 Also it was becoming harder to track each component's state, so I decided to use Redux. To maintain certain information (which movie or actor is selected, etc.) which I needed for api calls I stored them in the _localStorage_ which were available upon request.<br/>
 Moreover, the application was behaving differently each time I clicked on certain links. For example I would get error saying _variable.map()_ is not a function. I was getting those _variable_ arrays as props from the state which in fact were being stored in _localStorage_ as well. After a bit of testing I found out that when you store arrays in _localStorage_ it actually keeps the address of the array and not the value of it. Moreover, I didn't need to store them(arrays passed as props) in the _localStorage_ since I was making api calls after each page redirects or clicks or refresh and the needed information(not the arrays, but primitives, like movie id genre id etc.) for these calls were already stored in the _localStorage_.
-There were some more code and logical errors and bugs that I encountered, but the internet was kind enough to help me out.
-To understand better you can inspect the code for actions, the reducer and some component. That should be insightful enough.
+There were some more code and logical errors and bugs that I encountered, but the internet was kind enough to help me out.<br/>
+To understand better you can inspect the code for actions, the reducer and some components. That should be insightful enough.
 
 ## Deployment
 I deployed the application to the __Netlify__ and it is available to preview on [Movipedia](https://moviedbpedia.netlify.app/)
