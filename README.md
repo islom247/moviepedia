@@ -59,7 +59,7 @@ There were some more code and logical errors and bugs that I encountered, but th
 To understand better you can inspect the code for actions, the reducer and some components. That should be insightful enough.
 
 ## Deployment
-I deployed the application to the __Netlify__ and it is available to preview on [Movipedia](https://moviedbpedia.netlify.app/)
+I deployed the application to the __Firebase__ and it is available to preview on [Movipedia](https://moviepedia-97599.web.app/)
 
 __P.S:__ The core part of the application is done but the styling is still under development.
 
